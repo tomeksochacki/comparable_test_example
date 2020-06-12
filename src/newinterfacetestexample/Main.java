@@ -44,6 +44,24 @@ public class Main {
             System.out.println(s.salary);
         }
 
+        Teacher[] teacher = new Teacher[4];
+        teacher[0] = new Teacher(34, 1500);
+        teacher[1] = new Teacher(45, 3500);
+        teacher[2] = new Teacher(36, 3000);
+        teacher[3] = new Teacher(20, 1000);
+
+        System.out.println("Before sort");
+        for (Teacher t: teacher) {
+            System.out.println("salary is: " + t.salary + " "+ ", age is: " + t.age);
+        }
+
+        Arrays.sort(teacher);
+        System.out.println("After sort");
+        for (Teacher t2: teacher) {
+            System.out.println("salary is: " + t2.salary + " " + "age is: " + t2.age);
+
+        }
+
 
 
 /*
@@ -120,6 +138,37 @@ class Employee implements nameInterface, somethingTwo, Comparable  {
         if(this.salary< sent.salary){
             return -1;
         } else if (this.salary > sent.salary){
+            return 1;
+        }
+        return 0;
+    }
+
+}
+
+class Teacher implements Comparable{
+
+    double age;
+    double salary;
+    Teacher(double age, double salary){
+        this.age = age;
+        this.salary = salary;
+    }
+
+    double getAge(){
+        return this.age;
+    }
+
+    double getSalary(){
+        return this.salary;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Teacher sent = (Teacher)o;
+        if (this.salary < sent.salary){
+            return -1;
+        }
+        if (this.salary > sent.salary){
             return 1;
         }
         return 0;
