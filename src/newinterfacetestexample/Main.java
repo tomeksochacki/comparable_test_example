@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-
+/*
         Employee[] employee = new Employee[3];
         employee[0] = new Employee(100);
         employee[1] = new Employee(400);
@@ -26,6 +26,25 @@ public class Main {
         for (Employee emp2: employee) {
             System.out.println(emp2.salary);
         }
+*/
+        Student[] student = new Student[4];
+        student[0] = new Student(1000);
+        student[1] = new Student(34);
+        student[2] = new Student(321);
+        student[3] = new Student(21);
+
+        System.out.println("After sort");
+        for (Student s2: student) {
+            System.out.println(s2.salary);
+        }
+
+        System.out.println("Before sort");
+        Arrays.sort(student);
+        for (Student s:student) {
+            System.out.println(s.salary);
+        }
+
+
 
 /*
         int[] tab = new int[3];
@@ -56,6 +75,30 @@ class A{
 
 }
 
+class Student implements Comparable{
+
+    Student(double salary){
+        this.salary = salary;
+    }
+    double salary;
+
+    double getSalary(){
+        return this.salary;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+
+        Student sent = (Student)o;
+        if (this.salary<sent.salary){
+            return -1;
+        } else if (this.salary>sent.salary){
+            return 1;
+        }
+        return 0;
+    }
+}
+
 class Employee implements nameInterface, somethingTwo, Comparable  {
 
     @Override
@@ -81,4 +124,5 @@ class Employee implements nameInterface, somethingTwo, Comparable  {
         }
         return 0;
     }
+
 }
